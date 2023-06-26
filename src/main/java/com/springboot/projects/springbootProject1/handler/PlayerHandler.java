@@ -27,7 +27,6 @@ public class PlayerHandler {
 	public static String writeToFile() {
 		String result = "";
 		//Default folder for writing files is the apache tomcat bin folder
-	
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter("players.txt"));
 			
@@ -41,9 +40,6 @@ public class PlayerHandler {
 			e.printStackTrace();
 			result = "Writing not ok";
 		}
-		
-		
-		
 		
 		return result;
 	}
@@ -67,5 +63,11 @@ public class PlayerHandler {
 		}
 		
 		return playersFromFile;
+	}
+	
+	public static String addNewPlayer(String name, double score) {
+		int NewId = playerList.size() + 1;
+		playerList.add(new Player(name, NewId, score));
+		return "Adding new player done";
 	}
 }
